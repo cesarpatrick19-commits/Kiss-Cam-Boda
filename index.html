@@ -176,105 +176,77 @@
 
 
     /* =========================================
-       BANNER INFERIOR
-       
-       "Beso o Shot"
-       
-       Este elemento permanece fijo
-       y separado de los botones.
-    ========================================= */
+   BANNER INFERIOR (LETRERO LED MÓVIL)
+========================================= */
 
-    .bottom-bar {
+.bottom-bar {
+  position: absolute;
+  left: 50%;
 
-      position: absolute;
+  /* 
+    SI NECESITAS BAJAR O SUBIR UN POCO EL BANNER:
+    Ajusta este valor 'bottom' (ej. 12px, 14px, 16px) 
+    hasta que caiga exacto en el centro del marco.
+  */
+  bottom: 14px; 
 
-      left: 50%;
+  transform: translateX(-50%);
+  
+  /* Hacemos el banner más ancho hacia los lados */
+  width: 75vw;
+  max-width: 550px;
+  height: 32px;
 
-      bottom: 10px;
+  /* Mantiene el texto dentro de la cápsula */
+  overflow: hidden; 
 
-      transform:
-        translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 
-      pointer-events: auto;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 6px;
-
-      background:
-        rgba(0, 0, 0, 0.65);
-
-      padding:
-        5px 10px;
-
-      border-radius:
-        30px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.3);
-
-      backdrop-filter:
-        blur(6px);
-
-      box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, 0.3);
-
-      white-space:
-        nowrap;
-
-      /*
-        El banner permanece siempre visible.
-      */
-
-      opacity:
-        1;
-
-      transition:
-        opacity 0.3s ease;
-
-    }
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
 
 
-    /* =========================================
-       TEXTO DEL BANNER
-    ========================================= */
+/* =========================================
+   TEXTO EN MOVIMIENTO (ANIMACIÓN MARQUEE)
+========================================= */
 
-    .footer-text {
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espacio entre cada repetición del mensaje */
+  white-space: nowrap;
+  
+  /* Puedes cambiar '10s' para hacerlo más rápido o más lento */
+  animation: marquee-scroll 10s linear infinite;
+  will-change: transform;
+}
 
-      color:
-        #fff;
+.footer-text span {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
-      font-size:
-        0.78rem;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      gap:
-        4px;
-
-      font-weight:
-        600;
-
-      white-space:
-        nowrap;
-
-      line-height:
-        1;
-
-    }
+/* Animación que desplaza el texto de derecha a izquierda */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 
     /* =========================================
@@ -816,7 +788,7 @@
 
 
       <!-- =====================================
-           BANNER:
+           BANNER INFERIOR MÓVIL
 
            💋 ¡Beso o Shot! 🍻
 
@@ -824,34 +796,13 @@
            Independiente de los botones.
       ====================================== -->
 
-      <div
-        class="bottom-bar"
-        id="bottom-bar"
-      >
-
-        <div
-          class="footer-text"
-        >
-
-          <span
-            class="kiss"
-          >
-            💋
-          </span>
-
-          <span>
-            ¡Beso o Shot!
-          </span>
-
-          <span
-            class="glass"
-          >
-            🍻
-          </span>
-
-        </div>
-
-      </div>
+      <div class="bottom-bar" id="bottom-bar">
+  <div class="footer-text">
+    <span>💋 ¡Beso o Shot! 🍻</span>
+    <span>💋 ¡Beso o Shot! 🍻</span>
+    <span>💋 ¡Beso o Shot! 🍻</span>
+  </div>
+</div>
 
 
       <!-- =====================================
