@@ -900,6 +900,31 @@
 
       </div>
 
+      /* =========================================
+   MODO PROYECCIÓN (REDUCCIÓN AL 50%)
+========================================= */
+
+/* Agregamos transición suave a los controles para el escalado */
+.controls {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+
+  /* Animación suave al cambiar de tamaño */
+  transition: transform 0.3s ease;
+}
+
+/* Al entrar en modo proyección, escalamos los controles al 50% */
+.container.projecting .controls {
+  transform: scale(0.5);
+  transform-origin: bottom right; /* Se reduce manteniéndose fijo en la esquina */
+}
+
 
     </div>
 
