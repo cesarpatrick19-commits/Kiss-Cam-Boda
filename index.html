@@ -350,6 +350,9 @@
 
       pointer-events: auto;
 
+      /* Transición suave para el cambio de tamaño */
+  transition: transform 0.3s ease;
+
     }
 
 
@@ -409,6 +412,15 @@
         none;
 
     }
+    
+    /* Reduce todo el grupo de controles al 50% pegado a la esquina */
+.container.projecting .controls {
+
+  transform: scale(0.5);
+
+  transform-origin: bottom right;
+
+}
 
 
     /* =========================================
